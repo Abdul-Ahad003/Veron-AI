@@ -16,7 +16,7 @@ const Hello = () => {
     const getData = async () => {
         setloading(true)
 
-        const a = await fetch("http://localhost:3000/api", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt: prompt }) })
+        const a = await fetch("https://veron-ai-assistant.onrender.com/api", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt: prompt }) })
         const b = await a.json()
 
         if (b) {
