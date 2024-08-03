@@ -12,8 +12,8 @@ app.use(bodyParser.json())
 
 app.post('/api', async (req, res) => {
 
-	const j = req.body
-	console.log(j.prompt);
+	const obj = req.body
+	
 	const url = 'https://copilot5.p.rapidapi.com/copilot';
 	const options = {
 	method: 'POST',
@@ -24,7 +24,7 @@ app.post('/api', async (req, res) => {
 	},
 	body: JSON.stringify(
 		{
-		message: j.prompt,
+		message: obj.prompt,
 		conversation_id: null,
 		tone: 'BALANCED',
 		markdown: false,
@@ -42,7 +42,7 @@ try {
   	res.send(result)
 } catch (error) {
 	console.error(error);
-	res.send(error.message)
+	res.send(error)
 }
 	
 })
